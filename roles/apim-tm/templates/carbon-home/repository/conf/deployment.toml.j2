@@ -1,6 +1,5 @@
 [server]
 hostname = "{{ hostname }}"
-node_ip = "127.0.0.1"
 offset="{{ ports_offset }}"
 server_role = "traffic-manager"
 
@@ -50,14 +49,26 @@ file_name = "{{ trust_store_name }}"
 type = "JKS"
 password = "{% if secure_vault_enabled|bool %}$secret{trust_store_password}{% else %}{{ trust_store_password }}{% endif %}"
 
-[apim.key_manager]
-service_url = "{{ key_manager_server_url }}"
+#[apim.key_manager]
+#service_url = "{{ key_manager_server_url }}"
+#username = "$ref{super_admin.username}"
+#password = "$ref{super_admin.password}"
+
+[apim.event_hub]
+enable = true
 username = "$ref{super_admin.username}"
 password = "$ref{super_admin.password}"
+service_url = "https://cplb.apim.com/services/"
+event_listening_endpoints = ["tcp://cp.apim.com:5684"]
 
 {% if tm_event_duplicate_url is defined %}
 [apim.throttling]
 event_duplicate_url = ["{{ tm_event_duplicate_url }}"]
+{% endif %}
+
+{% if tm_https_proxy_port is defined %}
+[transport.https.properties]
+proxyPort = {{ tm_https_proxy_port }}
 {% endif %}
 
 {% if secure_vault_enabled|bool %}

@@ -62,9 +62,9 @@ security_file_list:
 
 # Uncomment and add any miscellaneous files you need to copy
 # A sample is given below
-misc_file_list:
-   - { src: '{{ misc_file_location }}/apictl-3.2.6-linux-x64.tar.gz',
-       dest: '{{ misc_file_copy_location }}/apictl-3.2.6-linux-x64.tar.gz' }
+# misc_file_list:
+#   - { src: '{{ misc_file_location }}/apictl-3.2.6-linux-x64.tar.gz',
+#       dest: '{{ misc_file_copy_location }}/apictl-3.2.6-linux-x64.tar.gz' }
 
 # Set the location the product packages should reside in (eg: "local" in the /files directory, "remote" in a remote location)
 pack_location: remote

@@ -34,20 +34,15 @@ admin_password: admin
 tm_memory: -Xms256m -Xmx1024m
 
 # Shared db configurations
-wso2shared_db_type: mysql
-wso2shared_db_hostname: shared_db.mysql
-wso2shared_db_name: shared_db
-wso2shared_db_port: 3306
-wso2shared_db_username: shareduser
-wso2shared_db_password: shareduser
+wso2am_db_type: h2
+wso2am_db_url: jdbc:h2:./repository/database/WSO2AM_DB;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+wso2am_db_username: wso2carbon
+wso2am_db_password: wso2carbon
 
-# APIM db configurations
-wso2am_db_type: mysql
-wso2am_db_hostname: shared_db.mysql
-wso2am_db_name: shared_db
-wso2am_db_port: 3306
-wso2am_db_username: apimuser
-wso2am_db_password: apimuser
+wso2shared_db_type: h2
+wso2shared_db_url: jdbc:h2:./repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE
+wso2shared_db_username: wso2carbon
+wso2shared_db_password: wso2carbon
 
 config_files:
   - { src: 'carbon-home/repository/conf/deployment.toml.j2',

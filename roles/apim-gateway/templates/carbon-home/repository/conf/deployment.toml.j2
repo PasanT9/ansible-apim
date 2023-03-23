@@ -1,6 +1,8 @@
 [server]
-#hostname = "gw.wso2.com"
 server_role = "gateway-worker"
+hostname = "{{ hostname }}"
+offset="{{ ports_offset }}"
+base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
 
 [user_store]
 type = "database_unique_id"
@@ -12,9 +14,7 @@ create_admin_account = true
 
 [database.shared_db]
 type = "{{ wso2shared_db_type }}"
-hostname = "{{ wso2shared_db_url }}"
-name = "{{ wso2shared_db_name }}"
-port = "{{ wso2shared_db_port }}"
+url = "{{ wso2shared_db_url }}"
 username = "{% if secure_vault_enabled|bool %}$secret{wso2shared_db_username}{% else %}{{ wso2shared_db_username }}{% endif %}"
 password = "{% if secure_vault_enabled|bool %}$secret{wso2shared_db_password}{% else %}{{ wso2shared_db_password }}{% endif %}"
 

@@ -1,10 +1,10 @@
 [apim]
-apim_1 ansible_host=[ip_address] ansible_user=[ssh_user]
+apim-gateway_1 ansible_host=139.59.72.178 ansible_user=root
 
 # Example
 # [apim]
 # apim_1 ansible_host=172.28.128.4 ansible_user=vagrant
 
 # Example
-# [micro-integrator]
-# micro-integrator_1 ansible_host=172.28.128.4 ansible_user=vagrant
+#[micro-integrator]
+#micro-integrator_1 ansible_host=139.59.72.178 ansible_user=root

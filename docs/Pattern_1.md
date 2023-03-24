@@ -9,7 +9,11 @@ The Ansible scripts are capable of installing java from a given JDK installer fr
 
 Copy the following files to `files/lib` directory.
 
+<<<<<<< HEAD
 1. [Amazon Corretto JDK 17 for Linux x64 (.tar.gz)](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html)
+=======
+1. [Amazon Corretto for Linux x64 JDK](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html)
+>>>>>>> GihanAyesh/4.2.x
 
 ## Adding miscellaneous files
 If additional files needs to be added to the VMs, copy the miscellaneous files to `files/misc` directory. To enable file copying,  uncomment the `misc_file_list` in the yaml files under `group_vars` and add the miscellaneous files to the list.

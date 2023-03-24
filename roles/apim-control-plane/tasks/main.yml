@@ -54,7 +54,7 @@
       unarchive:
         src: "{{ remote_pack }}"
         dest: "{{ product_dir }}"
-        mode: u=rw,g=r,o=r
+        mode: u=rwx,g=rwx,o=rwx
         remote_src: yes
       when: pack_location == "remote"
 
@@ -113,7 +113,7 @@
   - block:
     - include: common-tasks/secure-vault.yml
       when: secure_vault_enabled|bool
-
+      
     - name: Start wso2apim-controlplane as a service
       systemd:
         name: wso2apim-controlplane

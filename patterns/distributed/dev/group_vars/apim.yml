@@ -18,7 +18,6 @@ cp_hostname: cp.apim.com
 gw_hostname: gw.apim.com
 tm_hostname: tm.apim.com
 
-
 wso2_group: wso2 # OS group to be created
 wso2_user: wso2carbon # OS user for WSO2 services
 product_name: wso2am

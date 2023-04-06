@@ -14,6 +14,10 @@
 #  limitations under the License.
 # ----------------------------------------------------------------------------
 
+cp_hostname: cplb.apim.com
+gw_hostname: gwlb.apim.com
+tm_hostname: tmlb.apim.com
+
 wso2_group: wso2 # OS group to be created
 wso2_user: wso2carbon # OS user for WSO2 services
 product_name: wso2am
@@ -79,18 +83,18 @@ java_home: "/usr/lib/jvm/java-17-openjdk-amd64/"
 
 # Server URL of the Authentication service. Make sure to import the Key Manager's public certificate to WSO2 API-M's
 # client-truststore.jks. For more information, see https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores
-key_manager_server_url: https://cplb.apim.com/services/
+key_manager_server_url: https://{{ cp_hostname }}/services/
 
 # API Store related configurations
-api_devportal_url: https://cplb.apim.com/devportal
-api_devportal_server_url: https://cplb.apim.com/services/
+api_devportal_url: https://{{ cp_hostname }}/devportal
+api_devportal_server_url: https://{{ cp_hostname }}/services/
 
 # Gateway configurations
 gateway_environments:
   - { type: 'hybrid',
       name: 'Default',
       description: 'This is a hybrid gateway that handles both production and sandbox token traffic.',
-      service_url: 'https://gwlb.apim.com/services/',
+      service_url: 'https://{{ gw_hostname }}/services/',
       ws_endpoint: 'ws://gw.apim.com:9109',
       wss_endpoint: 'wss://gw.apim.com:8109',
       http_endpoint: 'http://gw.apim.com:8092',
@@ -101,7 +105,7 @@ gateway_environments:
 sync_runtime_gateway_labels: ["Default"]
 
 # Traffic Manager configurations
-traffic_manager_host_url: https://tmlb.apim.com
+traffic_manager_host_url: https://{{ tm_hostname }}
 traffic_manager_receiver_url: tcp://tm.apim.com:${receiver.url.port}
 traffic_manager_auth_url: ssl://tm.apim.com:${auth.url.port}
 throttle_config_policy_deployer_url: https://tm.apim.com/services/
